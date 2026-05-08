@@ -1,0 +1,15 @@
+services:
+  landing:
+    build:
+      context: .
+      dockerfile: Dockerfile.landing
+    restart: unless-stopped
+    env_file: .env
+    expose:
+      - "3000"
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.benchmark-intel.rule=Host(`benchmark-intel.prin7r.com`)"
+      - "traefik.http.routers.benchmark-intel.entrypoints=websecure"
+      - "traefik.http.routers.benchmark-intel.tls.certresolver=letsencrypt"
+      - "traefik.http.services.benchmark-intel.loadbalancer.server.port=3000"

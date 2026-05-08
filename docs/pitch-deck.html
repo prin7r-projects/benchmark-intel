@@ -1,0 +1,200 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Triad — Pitch Deck (10 slides)</title>
+  <style>
+    :root {
+      --paper:#F5F2EA; --paper-2:#ECE7DA; --ink:#14171C; --graphite:#2A2D33;
+      --rule:#B7B0A0; --muted:#6E6A60; --signal:#F2C744; --cinnabar:#C13A2A;
+    }
+    * { box-sizing: border-box; }
+    html, body {
+      margin: 0; background: var(--paper); color: var(--ink);
+      font-family: "IBM Plex Sans", "Helvetica Neue", system-ui, sans-serif;
+      font-size: 16px; line-height: 1.55; -webkit-font-smoothing: antialiased;
+    }
+    body { padding: 40px 0; }
+    .slide {
+      max-width: 1080px; margin: 0 auto 32px; aspect-ratio: 16/9;
+      background: var(--paper); border: 1px solid var(--ink); padding: 56px 72px;
+      display: flex; flex-direction: column; gap: 18px; position: relative;
+    }
+    .slide::before {
+      content: ""; position: absolute; left: 0; right: 0; top: 0;
+      height: 6px; background: var(--ink);
+    }
+    .num {
+      font-family: "IBM Plex Mono", ui-monospace, monospace;
+      font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase;
+      color: var(--muted);
+    }
+    h1 {
+      font-family: "IBM Plex Serif", Georgia, serif; font-weight: 700;
+      font-size: 64px; line-height: 1.0; letter-spacing: -0.022em; margin: 0;
+    }
+    h2 {
+      font-family: "IBM Plex Serif", Georgia, serif; font-weight: 600;
+      font-size: 38px; line-height: 1.05; letter-spacing: -0.014em; margin: 0;
+    }
+    h2 .accent { background: var(--signal); padding: 0 6px; }
+    p, li { font-size: 19px; line-height: 1.45; color: var(--graphite); }
+    ul { margin: 0; padding-left: 20px; }
+    ul li { padding: 6px 0; }
+    .meta {
+      font-family: "IBM Plex Mono", monospace; font-size: 12px;
+      letter-spacing: 0.16em; text-transform: uppercase; color: var(--muted);
+      margin-top: auto; display: flex; justify-content: space-between;
+      border-top: 1px solid var(--rule); padding-top: 16px;
+    }
+    table { border-collapse: collapse; width: 100%; }
+    th, td {
+      text-align: left; font-size: 16px; padding: 10px 12px;
+      border-bottom: 1px solid var(--rule); font-family: "IBM Plex Mono", monospace;
+    }
+    th {
+      font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase;
+      color: var(--muted); background: var(--paper-2);
+    }
+    .stripes { display: flex; gap: 6px; align-items: center; }
+    .stripes svg { display: block; }
+    .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; }
+    @media print { body { padding: 0; } .slide { margin: 0; page-break-after: always; border: none; } }
+  </style>
+</head>
+<body>
+
+<section class="slide">
+  <span class="num">01 / 10 · Cover</span>
+  <div class="stripes">
+    <svg width="44" height="28" viewBox="0 0 44 28">
+      <rect x="0" y="0"  width="44" height="6" fill="#14171C"/>
+      <rect x="0" y="11" width="44" height="6" fill="#F2C744"/>
+      <rect x="0" y="22" width="44" height="6" fill="#14171C"/>
+    </svg>
+    <strong style="font-family:'IBM Plex Serif',Georgia,serif;font-size:38px;letter-spacing:-0.014em;">TRIAD</strong>
+  </div>
+  <h1>The standing record of who is <span style="background:#F2C744;padding:0 8px;">fastest</span>, <span style="background:#F2C744;padding:0 8px;">cheapest</span>, and <span style="background:#F2C744;padding:0 8px;">most correct</span> in AI.</h1>
+  <p>Three layers — LLMs, Agents, Harnesses. Cross-source. Footnoted. Published weekly.</p>
+  <div class="meta"><span>benchmark-intel.prin7r.com</span><span>2026-05-08</span></div>
+</section>
+
+<section class="slide">
+  <span class="num">02 / 10 · The problem</span>
+  <h2>AI engineers <span class="accent">maintain spreadsheets</span> to know what's working this week.</h2>
+  <ul>
+    <li>~6h/week of senior engineer time spent stitching vendor blogs, lmsys, ArtificialAnalysis, HELM, and SWE-bench into a private comparison sheet.</li>
+    <li>Vendor leaderboards cherry-pick the benchmarks they win on. Single-benchmark sites are siloed. HELM is rigorous but stale.</li>
+    <li>The harness layer — the same model in different scaffolds — is not measured anywhere public. It is now the biggest source of variance in agent performance.</li>
+  </ul>
+  <div class="meta"><span>02 / Problem</span><span>Triad pitch</span></div>
+</section>
+
+<section class="slide">
+  <span class="num">03 / 10 · The product</span>
+  <h2>A continuously updated <span class="accent">cross-source scoreboard</span>, three layers, footnoted.</h2>
+  <ul>
+    <li><strong>Layer 1 — LLMs</strong>: Anthropic, OpenAI, Google, Meta, xAI, DeepSeek, Mistral, Qwen, open-weights.</li>
+    <li><strong>Layer 2 — Agents</strong>: SWE-bench, GAIA, AgentBench, terminal-bench, OSWorld, plus product-mode agents.</li>
+    <li><strong>Layer 3 — Harnesses</strong>: same agent + same model across different scaffolds (Aider, Claude Code, Cursor, Codex CLI, plain SDK).</li>
+    <li>Weekly digest Mondays 09:00 GMT. On-demand custom slices, 24h SLA.</li>
+  </ul>
+  <div class="meta"><span>03 / Product</span><span>Triad pitch</span></div>
+</section>
+
+<section class="slide">
+  <span class="num">04 / 10 · Why us, why now</span>
+  <h2>The <span class="accent">harness layer</span> didn't exist 12 months ago.</h2>
+  <ul>
+    <li>Claude Code, Codex CLI, Cursor agent — all shipped in 2025. The harness market is now bigger than the academic benchmark market and grows weekly.</li>
+    <li>No incumbent owns the cross-source aggregator slot.</li>
+    <li>NOWPayments crypto rails let individual engineers subscribe without a procurement loop. Bypasses the slowest part of the corporate sales cycle.</li>
+  </ul>
+  <div class="meta"><span>04 / Why now</span><span>Triad pitch</span></div>
+</section>
+
+<section class="slide">
+  <span class="num">05 / 10 · Audience</span>
+  <h2>Three buyers, three motions.</h2>
+  <div class="grid-2">
+    <div>
+      <p><strong>Mira — Eval Lead</strong> at a 60-person applied-AI startup. $29/mo Reader on personal card. Renews monthly.</p>
+      <p><strong>Felix — Diligence Analyst</strong> at a $400M AI-focused fund. $199/mo Custom-slices. Quotes Triad in IC memos.</p>
+    </div>
+    <div>
+      <p><strong>Asha — Eval Lead</strong> at a F500 bank's AI Centre of Excellence. $1,499/mo Enterprise via wire. Defends vendor selection in regulated review.</p>
+      <p>Anti-personas: hype-cycle media, leaderboard tourists, procurement teams looking for vendor logos.</p>
+    </div>
+  </div>
+  <div class="meta"><span>05 / Audience</span><span>Triad pitch</span></div>
+</section>
+
+<section class="slide">
+  <span class="num">06 / 10 · Business model</span>
+  <h2>Three tiers. Crypto rails for individual buyers; wire for enterprise.</h2>
+  <table>
+    <thead><tr><th>Tier</th><th>Price</th><th>Audience</th><th>Rail</th></tr></thead>
+    <tbody>
+      <tr><td>Reader</td><td>$29 / mo</td><td>Mira</td><td>NOWPayments USDT/USDC</td></tr>
+      <tr><td>Custom-slices</td><td>$199 / mo</td><td>Felix + small teams</td><td>NOWPayments USDT/USDC</td></tr>
+      <tr><td>Enterprise</td><td>$1,499 / mo</td><td>Asha, F500</td><td>Wire / USDT direct invoice</td></tr>
+    </tbody>
+  </table>
+  <p style="margin-top:auto;">12-month run-rate target ~$550k ARR. 18-month target ~$1.0M ARR.</p>
+  <div class="meta"><span>06 / Business model</span><span>Triad pitch</span></div>
+</section>
+
+<section class="slide">
+  <span class="num">07 / 10 · Methodology and credibility</span>
+  <h2><span class="accent">Zero vendor sponsorship.</span> Every cell footnotes the source row.</h2>
+  <ul>
+    <li>Funded by subscription only. Published policy. We never accept compensation from a model lab, agent vendor, harness vendor, or benchmark organisation.</li>
+    <li>Cross-source normalisation: canonical row schema for every ingested score. Layer-aware percentile rank published.</li>
+    <li>Methodology versioning: when an upstream changes its scoring rubric, we re-ingest the affected history and surface a "methodology bumped" footnote on every cell for 30 days.</li>
+    <li>We aggregate; we do not currently run our own benchmarks.</li>
+  </ul>
+  <div class="meta"><span>07 / Methodology</span><span>Triad pitch</span></div>
+</section>
+
+<section class="slide">
+  <span class="num">08 / 10 · Traction and goals</span>
+  <h2>Where we're aiming in the next 12 months.</h2>
+  <table>
+    <thead><tr><th>Milestone</th><th>End of M1</th><th>End of M3</th><th>End of M12</th></tr></thead>
+    <tbody>
+      <tr><td>Unique visitors</td><td>~12k</td><td>~50k</td><td>~150k</td></tr>
+      <tr><td>Reader subs</td><td>~100</td><td>~500</td><td>~750</td></tr>
+      <tr><td>Custom-slices subs</td><td>~6</td><td>~30</td><td>~60</td></tr>
+      <tr><td>Enterprise pilots</td><td>0</td><td>2</td><td>8</td></tr>
+      <tr><td>HN front-page hits</td><td>0</td><td>1</td><td>4</td></tr>
+      <tr><td>Podcast appearances</td><td>1</td><td>4</td><td>8</td></tr>
+    </tbody>
+  </table>
+  <div class="meta"><span>08 / Traction</span><span>Triad pitch</span></div>
+</section>
+
+<section class="slide">
+  <span class="num">09 / 10 · Team and operating principles</span>
+  <h2>How we ship.</h2>
+  <ul>
+    <li>Founder + Chief of Design + Chief of Opportunities (Prin7r org). Engineering capacity via the Prin7r build pipeline.</li>
+    <li>Cadence: a digest every Monday, a methodology essay every quarter, a cross-source check on demand, a 60-day retrospective every quarter.</li>
+    <li>Operating principles: (1) every revenue source tied to a named payer + invoice id + tx hash; (2) every published number footnotes its source; (3) zero vendor compensation.</li>
+  </ul>
+  <div class="meta"><span>09 / Team</span><span>Triad pitch</span></div>
+</section>
+
+<section class="slide">
+  <span class="num">10 / 10 · Ask and CTAs</span>
+  <h2>Three ways to engage.</h2>
+  <ul>
+    <li><strong>Subscribe</strong>: Reader $29 / mo at <span style="font-family:'IBM Plex Mono',monospace;">benchmark-intel.prin7r.com/#pricing</span>.</li>
+    <li><strong>Pilot Enterprise</strong>: email <span style="font-family:'IBM Plex Mono',monospace;">founder@prin7r.com</span> with org, target cadence, three sample slice questions. Single-tenant pilot URL inside 48h.</li>
+    <li><strong>Comp the analyst tier</strong>: if you write at SemiAnalysis, Stratechery, or run a research desk at a fund — reach out for a 2-week comp.</li>
+  </ul>
+  <div class="meta"><span>10 / Ask</span><span>Triad pitch</span></div>
+</section>
+
+</body>
+</html>
