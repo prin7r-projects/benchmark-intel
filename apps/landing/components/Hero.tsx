@@ -1,7 +1,8 @@
 /**
  * [TRIAD_HERO] Display headline + sub-deck + dual CTA.
- * The headline is intentionally long; cinnabar `signal` highlighter on three
- * key adjectives; secondary CTA points at the in-page scoreboard anchor.
+ * The headline is intentionally long; word-level `.emph-underline` (Anthropic
+ * mechanic) on three key adjectives; secondary CTA points at the in-page
+ * scoreboard anchor.
  */
 
 import { trackingStats } from "@/lib/data";
@@ -23,11 +24,11 @@ export function Hero() {
           }}
         >
           The standing record of who is{" "}
-          <span style={{ background: "var(--signal)", padding: "0 6px" }}>fastest</span>
+          <span className="emph-underline">fastest</span>
           ,{" "}
-          <span style={{ background: "var(--signal)", padding: "0 6px" }}>cheapest</span>
+          <span className="emph-underline">cheapest</span>
           , and{" "}
-          <span style={{ background: "var(--signal)", padding: "0 6px" }}>most correct</span>{" "}
+          <span className="emph-underline">most correct</span>{" "}
           in AI.
         </h1>
         <p
