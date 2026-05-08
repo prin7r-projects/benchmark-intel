@@ -3,23 +3,42 @@
 @tailwind utilities;
 
 /* ---------------------------------------------------------------------------
-   [TRIAD_GLOBALS] Methods-journal × instrument-panel baseline.
-   The palette + type system are documented in /DESIGN.md sections 4-6.
-   Six colors, three Plex weights, hairline rules, footnoted everything.
+   [TRIAD_GLOBALS] Research journal on milky stone × instrument-panel baseline.
+   Refresh 2026-05-08 — palette + type lifted from the Anthropic reference
+   (warm-stone ivory page → milky #FAFAF8 per no-beige rule, near-black
+   #141413 dark cards, serif-grotesque pairing, word-level underline as the
+   primary emphasis device replacing color highlights). Triad-specific
+   anchors retained: cinnabar alert, signal-yellow highlight, tide tag color.
    --------------------------------------------------------------------------- */
 
 @import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Serif:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap");
 
 :root {
-  --paper:     #FAFAF8;   /* bone-white paper */
-  --paper-2:   #F0EFEC;   /* deeper paper, for alternating rows */
-  --ink:       #14171C;   /* near-black graphite ink */
-  --graphite:  #2A2D33;   /* secondary ink for body */
-  --rule:      #B7B0A0;   /* paper rule color */
-  --muted:     #6E6A60;   /* footnote/meta text */
-  --signal:    #F2C744;   /* signal-yellow, the "highlighted measurement" */
-  --cinnabar:  #C13A2A;   /* alert / delta-positive */
-  --tide:      #2D5C5A;   /* secondary accent — quietly editorial */
+  /* Lifted from Anthropic (canvas swapped to milky #FAFAF8) */
+  --paper:        #FAFAF8;   /* page base — milky white (was Anthropic ivory #faf9f5; swapped per no-beige rule) */
+  --paper-2:      #F0EEE6;   /* nav / elevated light surface */
+  --paper-3:      #E8E6DC;   /* ivory-dark — body text on dark surfaces, dividers */
+  --oat:          #E3DACC;   /* tertiary surface — release-card backgrounds */
+  --cloud-light:  #D1CFC5;   /* dividers, hairline borders */
+  --cloud-medium: #B0AEA5;   /* disabled / muted borders */
+  --cloud-dark:   #87867F;   /* secondary text, meta labels */
+  --slate-light:  #5E5D59;   /* tertiary text */
+  --slate-medium: #3D3D3A;   /* mid-dark borders, focus rings */
+  --slate-dark:   #141413;   /* primary text, dark card surface — near-black ink */
+
+  /* Triad's tighter receipt-typography ink (kept for tabular text where Plex Mono needs maximum contrast) */
+  --ink:          #14171C;   /* near-black graphite ink — kept for tabular numerics */
+  --graphite:    #2A2D33;   /* secondary body ink */
+  --rule:        #B0AEA5;   /* paper rule color — aligned with cloud-medium */
+  --muted:       #87867F;   /* footnote/meta — aligned with cloud-dark */
+
+  /* Triad semantic accents (kept; sparingly applied per Anthropic single-accent-per-section rule) */
+  --signal:    #F2C744;   /* signal-yellow — measurement highlight */
+  --cinnabar:  #C13A2A;   /* alert / delta */
+  --tide:      #2D5C5A;   /* quiet editorial tag color */
+
+  /* Anthropic accent reserve (used sparingly in CTAs and chips) */
+  --clay:      #D97757;   /* Anthropic warm terracotta — accent CTA, intentional warmth */
 }
 
 html {
@@ -80,6 +99,63 @@ body {
   background: var(--cinnabar);
   margin: 14px 0 18px;
 }
+
+/* Word-level underline emphasis — Anthropic's signature mechanic.
+   Apply to keywords in headlines instead of color/weight changes. */
+.emph-underline {
+  text-decoration: underline;
+  text-decoration-thickness: 3px;
+  text-underline-offset: 6px;
+  text-decoration-color: var(--slate-dark);
+}
+
+/* Dark editorial feature card (Anthropic) — for "broadsheet" interruptions
+   in the milky page rhythm. Ivory text on near-black with a hard 24px radius. */
+.feature-dark {
+  background: var(--slate-dark);
+  color: var(--paper);
+  border-radius: 24px;
+  padding: 32px;
+}
+.feature-dark .feature-display {
+  font-family: "IBM Plex Serif", Georgia, serif;
+  font-weight: 400;
+  font-size: clamp(48px, 7vw, 91px);
+  line-height: 1.1;
+  color: var(--paper);
+  letter-spacing: -0.01em;
+}
+.feature-dark .feature-cta {
+  display: inline-flex;
+  align-items: center;
+  background: var(--paper);
+  color: var(--slate-dark);
+  border: 1px solid var(--slate-dark);
+  border-radius: 0;
+  padding: 12px 28px;
+  font-family: "IBM Plex Sans", sans-serif;
+  font-weight: 500;
+  font-size: 15px;
+}
+
+/* Anthropic-style asymmetric primary CTA — flat top, rounded bottom.
+   Reserved for the single highest-priority nav CTA. */
+.btn-asymmetric {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--paper);
+  color: var(--slate-dark);
+  border: 1px solid var(--slate-dark);
+  border-radius: 0 0 8px 8px;
+  padding: 12px 28px;
+  font-family: "IBM Plex Sans", sans-serif;
+  font-weight: 500;
+  font-size: 15px;
+  text-decoration: none;
+  transition: background 80ms linear;
+}
+.btn-asymmetric:hover { background: var(--paper-2); }
 
 .section { border-bottom: 1px solid var(--rule); }
 

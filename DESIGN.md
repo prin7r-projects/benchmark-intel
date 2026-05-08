@@ -14,18 +14,22 @@ This document is the canonical design + style guide for `benchmark-intel.prin7r.
 
 ## 2. Visual positioning
 
-Triad is positioned as a **methods journal**, not a dashboard. The reference shelf is closer to *Stanford HELM*, *the AAAI papers index*, and a Bloomberg Terminal print-out than to *ArtificialAnalysis* or any vendor leaderboard. Things we deliberately avoid:
+Triad is positioned as a **research journal printed on milky stone** — not a dashboard, not a leaderboard. The visual system is lifted from the Anthropic reference (a printed methods journal where word-level underlines replace color emphasis, and the only chromatic warmth is the page itself), with the canvas hex swapped from Anthropic ivory `#faf9f5` to milky `#FAFAF8` per the no-beige rule. The reference shelf is *Stanford HELM* / *AAAI papers index* / *Anthropic research* / a Bloomberg Terminal print-out — never *ArtificialAnalysis* or any vendor leaderboard. Things we deliberately avoid:
 
 - Dashboard purple, animated number-counter heroes, gradient mesh backgrounds.
 - Leaderboard medals, gold/silver/bronze badges, vendor logos arranged as social-proof.
+- Beige/cream backgrounds (no-beige rule), color-emphasized headlines (use word-level underlines instead per Anthropic).
 - Marketing-style trust marks ("trusted by"), testimonial walls, generic SaaS hero illustrations.
 
 What we do instead:
 
 - Lead with a real-looking three-layer scoreboard rendered in print-style monospace, hairline rules, and paper offsets.
 - Footnote everything; treat numbers like citations.
-- Use colour sparingly — signal-yellow as a measurement highlight, cinnabar as the alert/delta colour, ink as the type, paper as the field.
-- Use a transitional serif (IBM Plex Serif) for editorial weight and a paired monospace (IBM Plex Mono) for measurements; IBM Plex Sans for running UI text.
+- **Word-level underline emphasis** on headline keywords (`<u>` style 3px underline at 6px offset, slate-dark color) — borrowed directly from Anthropic's signature mechanic. Never color-emphasize headline words.
+- **Dark editorial feature cards** (`.feature-dark`: slate-dark `#141413` background, 24px radius, paper text, IBM Plex Serif display at 91px) interrupt the milky page rhythm — strict alternation per Anthropic's surface alternation system.
+- Use colour sparingly — signal-yellow as a measurement highlight inside the scoreboard, cinnabar as the alert/delta colour, clay (Anthropic terracotta) reserved for one CTA per section. One accent per section maximum.
+- Use IBM Plex Serif (display + editorial body) as the Anthropic Serif analog, IBM Plex Sans (UI text) as the Anthropic Sans analog, and IBM Plex Mono for measurements/metadata labels.
+- Asymmetric `0 0 8px 8px` radius CTA (flat top, rounded bottom only) for the single primary nav CTA per Anthropic.
 
 ## 3. ShadCN baseline and local component policy
 
@@ -41,38 +45,59 @@ When the dashboard surface is built (Wave 3+), standard shadcn primitives (Table
 
 ## 4. Color tokens
 
-The palette is a tight 9-color system. Three roles: paper / ink / signal. The full token list is mirrored in `tailwind.config.ts` and `app/globals.css`.
+The palette is a 14-token system: 10 Anthropic-derived neutrals (canvas swapped to milky `#FAFAF8`) plus 4 Triad semantic accents (signal, cinnabar, tide) and the Anthropic clay accent reserve. Mirrored in `tailwind.config.ts` and `app/globals.css`.
 
 | Token | Hex | Role |
 |---|---|---|
-| `--paper` | `#FAFAF8` | Background of every page; bone-white, off-white. |
-| `--paper-2` | `#F0EFEC` | Alternating row, surface-2, featured-tier card background. |
-| `--ink` | `#14171C` | Primary type. Near-black graphite, never pure black. |
-| `--graphite` | `#2A2D33` | Secondary body type. |
-| `--rule` | `#B7B0A0` | Hairline rule colour for tables, frames, dividers. |
-| `--muted` | `#6E6A60` | Footnote / kicker / metadata text. |
-| `--signal` | `#F2C744` | Measurement highlight. Used like a yellow highlighter on key numbers and headings. |
-| `--cinnabar` | `#C13A2A` | Alert / delta colour. Footnote chips, "live" pulse, focus outline, hover state. |
-| `--tide` | `#2D5C5A` | Quiet editorial accent for labels and tags. Reserved for future surfaces. |
+| `--paper` | `#FAFAF8` | Page base — milky white (was Anthropic ivory `#faf9f5`; swapped per no-beige rule). |
+| `--paper-2` | `#F0EEE6` | Nav / elevated light surface — section highlight, secondary cards. |
+| `--paper-3` | `#E8E6DC` | Ivory-dark — body text on dark cards, dividers, subtle borders. |
+| `--oat` | `#E3DACC` | Tertiary surface — release-card backgrounds, callout sections. |
+| `--cloud-light` | `#D1CFC5` | Dividers, hairline borders, inactive states. |
+| `--cloud-medium` | `#B0AEA5` | Disabled / muted borders. |
+| `--cloud-dark` | `#87867F` | Secondary text, meta labels, timestamps. |
+| `--slate-light` | `#5E5D59` | Tertiary text, captions, footer secondary. |
+| `--slate-medium` | `#3D3D3A` | Mid-dark borders, focus rings on light surfaces. |
+| `--slate-dark` | `#141413` | Primary text, dark feature card surface — near-black ink (the Anthropic foreground+background dual-purpose color). |
+| `--ink` | `#14171C` | Tabular numerics ink (kept from Triad — slightly cooler than slate-dark for the scoreboard contrast). |
+| `--graphite` | `#2A2D33` | Secondary body type for scoreboard rows. |
+| `--rule` | `#B0AEA5` | Paper rule color — aligned with cloud-medium. |
+| `--muted` | `#87867F` | Footnote/meta — aligned with cloud-dark. |
+| `--signal` | `#F2C744` | Measurement highlight — yellow highlighter on key numbers in scoreboard. |
+| `--cinnabar` | `#C13A2A` | Alert / delta colour, focus outline, hover state. |
+| `--tide` | `#2D5C5A` | Quiet editorial accent for labels and tags. |
+| `--clay` | `#D97757` | Anthropic-reserved warm terracotta — accent CTA, one per section maximum. |
 
-Forbidden: pure black (`#000`), pure white (`#FFF`), saturated blues, neon greens, dashboard-purple, brand colours from any of the prior Wave 2 projects (Render, Cited, Cold Iron, Dispatch, Cadence, Frontline, Brassmark, Triangulate).
+Forbidden: pure black (`#000`), pure white (`#FFF`), beige/cream canvas, saturated blues, neon greens, dashboard-purple, brand colours from any prior Wave 2 projects.
 
 ## 5. Typography
 
-Pair: **IBM Plex Serif** (display + editorial body) + **IBM Plex Sans** (UI text) + **IBM Plex Mono** (measurements, kickers, tags). All three loaded from Google Fonts via the `IBM+Plex+*` request in `app/globals.css`.
+Pair (Anthropic-aligned three-family system): **IBM Plex Serif** (display + editorial — analog to Anthropic Serif) + **IBM Plex Sans** (UI text — analog to Anthropic Sans) + **IBM Plex Mono** (measurements, kickers, tags — analog to Anthropic Mono). All loaded from Google Fonts via the `IBM+Plex+*` request in `app/globals.css`.
+
+| Role | Family | Weight | Source |
+|---|---|---|---|
+| Display & feature-card headlines | **IBM Plex Serif** | 400 / 600 / 700 | Google Fonts |
+| Section heading + UI body | **IBM Plex Sans** | 400 / 500 / 600 | Google Fonts |
+| Numerics, kickers, metadata | **IBM Plex Mono** | 400 / 500 / 600 | Google Fonts |
+
+Why IBM Plex Serif as Anthropic Serif analog: at 91px the serif at display scale on dark feature cards reads as a printed broadsheet masthead — the closest open-source match for the Anthropic Serif voice. Used at weight 400/600 on dark feature cards exclusively (per Anthropic rule: never use serif at large size on light surfaces).
 
 Scale (in `tailwind.config.ts`):
 
-- Display: 96px / 0.94 line-height / -0.022em tracking — only used on the homepage hero headline.
-- H2: 48px / 1.05 / -0.014em — section openers.
-- H3: 28px / 1.05 — column headings.
-- H4: 22px / 1.15 — methodology step titles.
-- Body: 16px / 1.55 / -0.003em — running text.
-- Small: 14px / 1.5 — secondary copy, FAQ answers.
-- Kicker: 10.5px monospace / 0.18em uppercase — eyebrow labels above sections.
-- Tag: 9.5px monospace / 0.22em uppercase — tier numbers, layer tags.
+| Token | Size | Line-height | Letter-spacing | Use |
+|---|---|---|---|---|
+| `display`   | 64-91px clamp | 1.1  | -0.022em | Dark feature card headline only |
+| `h1`        | 40-61px clamp | 1.1  | -0.02em (Anthropic -1.22px) | Hero headline (Plex Sans 700, with word-level underlines on key terms) |
+| `h2`        | 48px          | 1.05 | -0.014em | Section openers |
+| `h3`        | 24px          | 1.3  | -0.005em | Column headings, methodology step titles |
+| `body`      | 16px          | 1.55 | -0.003em | Running text |
+| Small       | 14-15px       | 1.5  | normal | Secondary copy, FAQ answers |
+| Kicker      | 10.5px mono   | 1.4  | 0.18em uppercase | Eyebrow labels |
+| Tag         | 9.5px mono    | 1.4  | 0.22em uppercase | Tier numbers, layer tags |
 
 Numbers use tabular-nums (`font-feature-settings: "tnum"`) so columns line up.
+
+**Word-level underline emphasis (Anthropic mechanic):** key headline nouns ("standing record", "cross-source", "verified") receive a 3px text-decoration underline at 6px offset, color `--slate-dark`. This replaces the conventional approach of color emphasis. The `.emph-underline` class in `globals.css` is the standard way to mark emphasis on display headlines and h1 — never change the color or weight of headline keywords.
 
 ## 6. Spacing, radius, shadows, and borders
 
@@ -181,3 +206,4 @@ Both files are committed to the repo and embedded in the README and in this DESI
 ## 15. Changelog
 
 - 2026-05-08 — v0.1.0 — initial DESIGN.md + landing page + NOWPayments wiring + first deploy of `benchmark-intel.prin7r.com`. Brand identity finalised: Triad / IBM Plex / paper-ink-signal-cinnabar.
+- 2026-05-08 — Wave 2 design refresh — anthropic with milky-canvas adaptation. Lifted full Anthropic palette (10 ivory/slate neutrals plus clay terracotta accent reserve) with the canvas hex swapped from `#faf9f5` to `#FAFAF8` per the no-beige rule. Token count grew from 9 → 18 (10 Anthropic neutrals + 4 Triad accents + clay reserve + 3 backward-compat ink tokens). Typography re-anchored on the Anthropic three-family system (IBM Plex Serif as Anthropic Serif analog for dark-card display, IBM Plex Sans as Anthropic Sans for body+UI, IBM Plex Mono as Anthropic Mono for metadata). New components added in `globals.css`: `.emph-underline` (3px word-level underline emphasis — Anthropic's primary emphasis mechanic, replacing color highlights on headline keywords), `.feature-dark` (24px-radius near-black editorial card with Plex-Serif 91px display per Anthropic surface alternation system), `.btn-asymmetric` (the Anthropic 0/0/8/8 flat-top rounded-bottom CTA reserved for the single primary nav button). Display scale rebalanced to Anthropic 91px / line-height 1.1; h1 to 61px / line-height 1.1 / -0.02em tracking. Brand essence (research journal on milky stone) re-anchored in §2.
