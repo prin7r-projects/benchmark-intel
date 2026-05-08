@@ -14,8 +14,8 @@ const config: Config = {
     },
     extend: {
       colors: {
-        paper: "#F5F2EA",
-        "paper-2": "#ECE7DA",
+        paper: "#FAFAF8",
+        "paper-2": "#F0EFEC",
         ink: "#14171C",
         graphite: "#2A2D33",
         rule: "#B7B0A0",

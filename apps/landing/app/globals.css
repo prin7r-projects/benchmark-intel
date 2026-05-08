@@ -11,8 +11,8 @@
 @import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Serif:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap");
 
 :root {
-  --paper:     #F5F2EA;   /* bone-white paper */
-  --paper-2:   #ECE7DA;   /* deeper paper, for alternating rows */
+  --paper:     #FAFAF8;   /* bone-white paper */
+  --paper-2:   #F0EFEC;   /* deeper paper, for alternating rows */
   --ink:       #14171C;   /* near-black graphite ink */
   --graphite:  #2A2D33;   /* secondary ink for body */
   --rule:      #B7B0A0;   /* paper rule color */

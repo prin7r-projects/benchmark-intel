@@ -45,8 +45,8 @@ The palette is a tight 9-color system. Three roles: paper / ink / signal. The fu
 
 | Token | Hex | Role |
 |---|---|---|
-| `--paper` | `#F5F2EA` | Background of every page; bone-white, off-white. |
-| `--paper-2` | `#ECE7DA` | Alternating row, surface-2, featured-tier card background. |
+| `--paper` | `#FAFAF8` | Background of every page; bone-white, off-white. |
+| `--paper-2` | `#F0EFEC` | Alternating row, surface-2, featured-tier card background. |
 | `--ink` | `#14171C` | Primary type. Near-black graphite, never pure black. |
 | `--graphite` | `#2A2D33` | Secondary body type. |
 | `--rule` | `#B7B0A0` | Hairline rule colour for tables, frames, dividers. |
